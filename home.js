@@ -3,6 +3,7 @@
 //jehutu amr 4 input er 4 ta niei kaj kora lage so age oder 
 //access korte hobe//
 const validPin = 1234;
+const transactionData = [];
 //so add-amount and pin number er function similer so oi pura function 
 //ai function er vitor rekhe just parameter hishebe id die dilei 
 //hoe jabe 
@@ -102,6 +103,12 @@ document.getElementById('add-money-btn').addEventListener('click',
         //jog kora amount ta kintu oi same jayga tei boshate hobe
         //atar jonno alada function newa hoice name setInnertext:
         setInnerText(totalAvailableBalance);
+
+        const data = {
+            name: 'Add Money',
+            time: new Date().toLocaleTimeString()
+        }
+        transactionData.push(data);
     }
 )
 
@@ -141,6 +148,13 @@ document.getElementById('withdraw-money-button').addEventListener('click',
         }
         //minus kora amount ta same jaygay rakhbo abr 
         setInnerText(cashOut);
+
+
+        const data = {
+            name: 'Cash Out',
+            time: new Date().toLocaleTimeString()
+        }
+        transactionData.push(data);
     }
 )
 
@@ -191,7 +205,7 @@ const getBonus = getInputValue('coupon-number');
 const availBalance = getInnerText('available-balance');
 
 
-if (getBonus !== bonusCouponCode){
+if (getBonus === bonusCouponCode){
     const updatedbalance = availBalance + couponValue;
     setInnerText(updatedbalance);
 }
@@ -237,6 +251,54 @@ document.getElementById('pay-bill-btn').addEventListener('click',
         setInnerText(bill);
     }
 )
+
+//transactions//
+//ai section e ki hobe je dhoren ami add money korlam 
+//ai je ami add money r kon time e add money korlam aita transaction e add hoe jabe
+//same to the cashout .. mane jai kori shei tai transaction e add hoe jabe
+//duibar cashout korlam duibar e cashout hoe jabe//
+
+//shei khetre ami add money form e shob value die 'add money btn' click dibo 
+//tokhon e to jinish ta transactione show korbe 
+//so aita amake 'add money btn' e korte hobe//
+
+//so transaction-button e click korlei ami details gula pabo 
+//so taile eventlistener hobe transaction-button::
+
+document.getElementById('transaction-button').addEventListener('click',
+    function(e){
+        e.preventDefault();
+        //akhn ami ai button e click kore 
+        //oije akta array variable er vitor object push korcilam 
+        //oigula ke access korbo
+        const transactionContainer = document.getElementById('transaction-container');
+        transactionContainer.innerText = "";
+
+        for (const data of transactionData){
+            const div = document.createElement("div")
+            div.innerHTML=`
+            <div class="flex justify-between items-center bg-white p-[17px] rounded-2xl mb-[10px]">
+                    <div id="image-container-div" class="flex flex-row gap-4 items-center ">
+                        <div>
+                            <img class="bg-gray-300 p-[10px] rounded-[50%]" src="assets/wallet1.png" alt="">
+                        </div>
+                        <div class="text-start">
+                            <h3 class="text-[16px] font-bold text-[#525252]">${data.name}</h3>
+                            <p class="text-[11px] text-[#525252]">${data.time}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>`
+
+            //ata ke append kore daw transaction-container er vitor
+            transactionContainer.appendChild(div);
+        }
+    }
+)
+
 
 
 
@@ -303,6 +365,7 @@ document.getElementById('refresh').addEventListener('click',
         location.reload();
     }
 )
+
 
 //for logOut button 
 document.getElementById('log-out').addEventListener('click',

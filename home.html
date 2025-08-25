@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-[#F4F5F7] h-[100vh] max-w-lg mx-auto">
+<body class="bg-gray-300 h-[100vh] max-w-lg mx-auto">
     <!--nav bar-->
     <div class="bg-white rounded-b-3xl">
         <div class="flex items-center justify-between max-w-lg mx-auto border-b-1 pb-[13px] pl-[10px] pr-[10px] pt-[13px]">
@@ -178,42 +178,16 @@
             </div>
 
             <!--transactions form-->
-            <ul id="transaction-parent" class="form max-w-[380px] mx-auto" class="list bg-base-100 rounded-box shadow-md" style="display: none">
-                
-                <li class="list-row flex flex-row justify-between">
-                  <div class="text-4xl font-thin opacity-30 tabular-nums">01</div>
-                  <div class="list-col-grow">
-                    <div>Electricity Bill</div>
-                    <div class="text-xs uppercase font-semibold opacity-60">Today 01:44 AM</div>
-                  </div>
-                  <button class="btn btn-square btn-ghost">
-                    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
-                  </button>
-                </li>
-                
-                <li class="list-row flex flex-row justify-between pt-[15px]">
-                  <div class="text-4xl font-thin opacity-30 tabular-nums">02</div>
-                  <div class="list-col-grow">
-                    <div>Bank Deposit</div>
-                    <div class="text-xs uppercase font-semibold opacity-60">Today 01:44 AM</div>
-                  </div>
-                  <button class="btn btn-square btn-ghost">
-                    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
-                  </button>
-                </li>
-                
-                <li class="list-row flex flex-row justify-between pt-[15px]">
-                  <div class="text-4xl font-thin opacity-30 tabular-nums">03</div>
-                  <div class="list-col-grow">
-                    <div>Gas Bill</div>
-                    <div class="text-xs uppercase font-semibold opacity-60">Today 01:44 AM</div>
-                  </div>
-                  <button class="btn btn-square btn-ghost">
-                    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
-                  </button>
-                </li>
-                
-              </ul>
+            <section id="transaction-parent" class="form max-w-[420px] mx-auto">
+                <div class="flex justify-between items-center">
+                    <h1 class="my-5 font-bold">transactions</h1>
+                    <p class="text-gray-500 text-[15px]">View All</p>
+                </div>
+
+                <div id="transaction-container">
+                    
+                </div>
+            </section>
     </div>  
 
      <script src="home.js"></script>
