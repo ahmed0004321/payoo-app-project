@@ -293,3 +293,22 @@ document.getElementById('transaction-button').addEventListener('click',
         handleBg('transaction-button');
     }
 )
+
+
+//akta mojar jininish ami nijei kori 
+//jodi img er upor click kori taile refresh hoe jbae page
+
+document.getElementById('refresh').addEventListener('click',
+    function(){
+        location.reload();
+    }
+)
+
+//for logOut button 
+document.getElementById('log-out').addEventListener('click',
+    function(){
+        window.location.href = "./index.html";
+    }
+)
+
+
