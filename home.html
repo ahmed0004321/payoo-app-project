@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-[#F4F5F7] h-[100vh] max-w-lg mx-auto">
+    <!--nav bar-->
+    <div class="bg-white rounded-b-3xl">
+        <div class="flex items-center justify-between max-w-lg mx-auto border-b-1 pb-[13px] pl-[10px] pr-[10px] pt-[13px]">
+            <div class="flex gap-2 justify-center items-center">
+                 <div>
+                    <img class="h-[47px]" src="assets/Group.png" alt="">
+                </div>
+                <div>
+                    <h2 class="font-bold mb-[3px]">$<span id="available-balance">45000</span></h2>
+                    <p class="text-gray-400 text-[16px]">Available Balance</p>
+                </div>
+            </div>
+            <div><button class="btn btn-outline btn-primary text-gray-500"><i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i>Log Out</button></div>
+        </div>
+    
+        <!--welcome section-->
+        <div class="max-w-lg mx-auto mt-[30px]">
+            <h1 class="text-[24px] font-bold mb-[11px]">🔥 Welcome to Payooo!</h1>
+            <p class="text-[16px] text-gray-400">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
+        </div>
+    
+        <!--add money section-->
+    
+        <div class="max-w-lg mx-auto min-h-[200px] grid grid-cols-3 grid-rows-2 gap-4 p-[22px]">
+            <div id="add-money-button"class="form-btn border-1 border-gray-300 text-center p-3 rounded-2xl flex flex-col justify-center items-center">
+                <img class="mx-auto" src="assets/wallet1.png" alt="">
+                <h2>Add Money</h2>
+            </div>
+            <div id="cash-out-button" class="form-btn border-1 border-gray-300 text-center p-3 rounded-2xl flex flex-col justify-center items-center">
+                <img class="mx-auto" src="assets/send1.png" alt="">
+                <h2>Cash Out</h2>
+            </div>
+            <div id="transfer-money" class="form-btn border-1 border-gray-300 text-center p-3 rounded-2xl flex flex-col justify-center items-center">
+                <img class="mx-auto" src="assets/money1.png" alt="">
+                <h2>Transfer Money</h2>
+            </div>
+            <div id="bonus-get" class="form-btn border-1 border-gray-300 text-center p-3 rounded-2xl flex flex-col justify-center items-center">
+                <img class="mx-auto" src="assets/bonus1.png" alt="">
+                <h2>Get Bonus</h2>
+            </div>
+            <div id="pay-bill-button" class="form-btn border-1 border-gray-300 text-center p-3 rounded-2xl flex flex-col justify-center items-center">
+                <img class="mx-auto" src="assets/purse1.png" alt="">
+                <h2>Pay Bill</h2>
+            </div>
+            <div id="transaction-button" class="form-btn border-1 border-gray-300 text-center p-3 rounded-2xl flex flex-col justify-center items-center">
+                <img class="mx-auto" src="assets/transaction1.png" alt="">
+                <h2>Transactions</h2>
+            </div>
+        </div>
+    </div>
+    
+
+    <!--form section for all-->
+    <!--add money-->
+     <div class="all-form-section pb-[50px] mt-[35px]">
+        <div class="form" id="add-money-parent">
+            <h1 class="pl-[60px] mb-[15px] font-bold">Add Money</h1>
+            <form class="bg-white rounded-2xl p-[34px] mx-auto max-w-[402px]">
+                <div>
+                    <legend class="text-[12px] font-bold pb-[6px]">Select A Bank</legend>
+                    <select id="bank" class="bg-[#f4f5f7] select w-[340px] rounded-4xl text-gray-500">
+                        <option disabled selected>Select a Bank</option>
+                        <option>IFIC Bank</option>
+                        <option>Brac Bank</option>
+                        <option>City Bank</option>
+                        <option>Sonali Bank</option>
+                        <option>Southeast Bank</option>
+                      </select>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend">Bank Account Number</legend>
+                        <input id="account-number" type="text" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Enter 11 Digit Nu..." />
+                      </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend">Amount To Add</legend>
+                        <input id="add-amount" type="text" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Add Here..." />
+                      </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend">Pin Number</legend>
+                        <input id="pin-number" type="text" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Pin Nu..." />
+                      </fieldset>
+                      <button id="add-money-btn" class="btn btn-primary w-[340px] mt-[10px] rounded-4xl">Add Money</button>
+                </div>
+            </form>
+        </div>
+
+        <!--cash out-->
+        <div class="form" id="cash-out-parent" style="display: none">
+            <h1 class="pl-[60px] mb-[15px] font-bold">Cash Out</h1>
+            <div class="flex flex-col justify-center items-center bg-white w-[402px] mx-auto pt-[22px] rounded-2xl">
+                <fieldset class="fieldset">
+                    <legend class="fieldset-legend">Agent Number</legend>
+                    <input id="agent-number" type="text" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Enter Agent Number..." />
+                  </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="fieldset-legend">Amount</legend>
+                    <input id="withdraw-amount" type="text" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Amount..." />
+                  </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="fieldset-legend">Pin Number</legend>
+                    <input id="cash-pin-number" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Pin Number"/>
+                  </fieldset>
+                  <button id="withdraw-money-button" class="btn btn-primary w-[340px] mt-[10px] rounded-4xl">Withdraw Money</button>
+            </div>
+        </div>
+
+        <!--transfer money-->
+        <div class="form" id="transfer-money-parent" style="display: none">
+            <h1 class="pl-[60px] mb-[15px] font-bold">Transfer Money</h1>
+            <div class="flex flex-col justify-center items-center bg-white w-[402px] mx-auto pt-[22px] rounded-2xl">
+                <fieldset class="fieldset">
+                    <legend class="fieldset-legend">User Account Number</legend>
+                    <input id="transfer-account-number" type="text" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Enter User Account Number..." />
+                  </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="fieldset-legend">Amount</legend>
+                    <input id="transfer-amount" type="text" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Amount..." />
+                  </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="fieldset-legend">Pin Number</legend>
+                    <input id="transfer-pin-number" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Pin Number"/>
+                  </fieldset>
+                  <button id="transfer-money-button" class="btn btn-primary w-[340px] mt-[10px] rounded-4xl">Send Now</button>
+            </div>
+        </div>
+            <!--Get bonus-->
+            <div class="form" id="get-bonus-parent" style="display: none">
+                <h1 class="pl-[60px] mb-[15px] font-bold">Get Bonus</h1>
+                <div class="flex flex-col justify-center items-center bg-white w-[402px] mx-auto pt-[22px] pb-[15px] rounded-2xl">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend">Enter Bonus Coupon</legend>
+                        <input id="coupon-number" type="text" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Enter Your Coupon" />
+                      </fieldset>
+                      <button id="get-bonus-button" class="btn btn-primary w-[340px] mt-[10px] rounded-4xl">Get Bonus</button>
+                </div>
+            </div>
+            
+            <!--pay bill form section-->
+
+            <div class="form" id="pay-bill-parent" style="display: none">
+                <h1 class="pl-[60px] mb-[15px] font-bold">Add Money</h1>
+                <form class="bg-white rounded-2xl p-[34px] mx-auto max-w-[402px]">
+                    <div>
+                        <legend class="text-[12px] font-bold pb-[6px]">Select To Pay</legend>
+                        <select id="bank" class="bg-[#f4f5f7] select w-[340px] rounded-4xl text-gray-500">
+                            <option disabled selected>Select...</option>
+                            <option>Electricity Bill</option>
+                            <option>Bank Deposit</option>
+                            <option>Gas Bill</option>
+                            <option>Rent Pay</option>
+                            <option>Car bill</option>
+                          </select>
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Bill Account Number</legend>
+                            <input id="bill-account-number" type="text" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Enter 11 Digit Number" />
+                          </fieldset>
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Amount To Add</legend>
+                            <input id="bill-amount" type="text" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Add Here..." />
+                          </fieldset>
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Pin Number</legend>
+                            <input id="bill-pin-number" type="text" class="input w-[340px] rounded-4xl bg-gray-100" placeholder="Pin Number" />
+                          </fieldset>
+                          <button id="pay-bill-btn" class="btn btn-primary w-[340px] mt-[10px] rounded-4xl">Pay Now</button>
+                    </div>
+                </form>
+            </div>
+
+            <!--transactions form-->
+            <ul id="transaction-parent" class="form max-w-[380px] mx-auto" class="list bg-base-100 rounded-box shadow-md" style="display: none">
+                
+                <li class="list-row flex flex-row justify-between">
+                  <div class="text-4xl font-thin opacity-30 tabular-nums">01</div>
+                  <div class="list-col-grow">
+                    <div>Electricity Bill</div>
+                    <div class="text-xs uppercase font-semibold opacity-60">Today 01:44 AM</div>
+                  </div>
+                  <button class="btn btn-square btn-ghost">
+                    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
+                  </button>
+                </li>
+                
+                <li class="list-row flex flex-row justify-between pt-[15px]">
+                  <div class="text-4xl font-thin opacity-30 tabular-nums">02</div>
+                  <div class="list-col-grow">
+                    <div>Bank Deposit</div>
+                    <div class="text-xs uppercase font-semibold opacity-60">Today 01:44 AM</div>
+                  </div>
+                  <button class="btn btn-square btn-ghost">
+                    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
+                  </button>
+                </li>
+                
+                <li class="list-row flex flex-row justify-between pt-[15px]">
+                  <div class="text-4xl font-thin opacity-30 tabular-nums">03</div>
+                  <div class="list-col-grow">
+                    <div>Gas Bill</div>
+                    <div class="text-xs uppercase font-semibold opacity-60">Today 01:44 AM</div>
+                  </div>
+                  <button class="btn btn-square btn-ghost">
+                    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
+                  </button>
+                </li>
+                
+              </ul>
+    </div>  
+
+     <script src="home.js"></script>
+</body>
+</html>

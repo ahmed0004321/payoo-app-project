@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyoo mobile app project</title>
+    <!--tailwind cdn and daisyui cdn-->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#F4F5F7] h-[100vh] flex justify-center items-center flex-col">
+    <div class="h-[130px] w-[300px] bg-[url(./assets/bg.png)] bg-cover flex justify-center items-center">
+        <img src="assets/Group.png" alt="">
+    </div>
+    <form class="w-[402px] h-[275px] bg-white flex justify-center items-center rounded-xl">
+        <div>
+            <fieldset class="fieldset">
+                <legend class="fieldset-legend">Mobile Number</legend>
+                <input id="phone-number" type="text" class="input border-none rounded-4xl bg-gray-100" placeholder="Enter Your Number" />
+                <legend class="fieldset-legend">4 Digit Pin</legend>
+                <input id="pin-number" type="text" class="input border-none rounded-4xl bg-gray-100" placeholder="Enter 4 Digits" />
+                <button id="loginButton" class="btn btn-soft btn-primary w-[320px] mt-[10px] rounded-4xl">Login</button>
+              </fieldset>
+        </div>
+    </form>
+    <!--js connected-->
+    <script src="script.js"></script>
+</body>
+</html>
