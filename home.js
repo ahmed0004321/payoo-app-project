@@ -96,6 +96,10 @@ document.getElementById('add-money-btn').addEventListener('click',
             alert('Please Provide a Valid Pin Number!');
             return;
         }
+        else if(amount <= 0){
+            alert('Invalid Amount');
+            return;
+        }
 
         //amr kaj akhn jog kora
         const totalAvailableBalance = availableBalance + amount;
@@ -140,6 +144,10 @@ document.getElementById('withdraw-money-button').addEventListener('click',
             alert('Please Provide a Valid Pin Number');
             return;
         }
+        else if(withdrawAmount <= 0 || withdrawAmount > availAbleBalance){
+            alert('Invalid Withdraw Amount');
+            return;
+        }
         const cashOut = availAbleBalance - withdrawAmount;
 
         if(cashOut < 0){
@@ -178,6 +186,11 @@ document.getElementById('transfer-money-button').addEventListener('click',
             alert('Invalid Pin Number');
             return;
         }
+
+        else if(transferAmount <= 0){
+            alert('Invalid Transfer Amount');
+            return;
+        }
         const preUpdateBalance = getInnerText('available-balance');
         const postUpdatedBalance = preUpdateBalance - transferAmount;
 
@@ -186,6 +199,12 @@ document.getElementById('transfer-money-button').addEventListener('click',
             return;
         }
         setInnerText(postUpdatedBalance);
+
+        const data = {
+            name: 'Transfer Money',
+            time: new Date().toLocaleTimeString()
+        }
+        transactionData.push(data);
     }
 )
 
@@ -198,21 +217,18 @@ document.getElementById('get-bonus-button').addEventListener('click',
         e.preventDefault();
         
         //ata string value o hote pare so parseINT er dorkar nai
-const bonusCouponCode = validPin;
 const couponValue = 1000;
 const getBonus = getInputValue('coupon-number');
 
 const availBalance = getInnerText('available-balance');
 
 
-if (getBonus === bonusCouponCode){
-    const updatedbalance = availBalance + couponValue;
-    setInnerText(updatedbalance);
+
+const data = {
+    name: 'Pay Bill',
+    time: new Date().toLocaleTimeString()
 }
-else{
-    alert('get a valid coupon number');
-    return;
-}
+transactionData.push(data);
     }
 )
 
@@ -241,6 +257,10 @@ document.getElementById('pay-bill-btn').addEventListener('click',
             alert('Please Provide a Valid Pin Number');
             return;
         }
+        else if(billAmount <= 0){
+            alert('Invalid Bill Amount');
+            return;
+        }
         const bill = availAbleBillBalance - billAmount;
 
         if(bill < 0){
@@ -249,6 +269,12 @@ document.getElementById('pay-bill-btn').addEventListener('click',
         }
         //minus kora amount ta same jaygay rakhbo abr 
         setInnerText(bill);
+
+        const data = {
+            name: 'Pay Bill',
+            time: new Date().toLocaleTimeString()
+        }
+        transactionData.push(data);
     }
 )
 
